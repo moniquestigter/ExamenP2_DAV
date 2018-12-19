@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View , Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View , Button, TextInput, ScrollView} from 'react-native';
+import HTML from 'react-native-render-html';
+
 
 export default class JobInfo extends React.Component {
 
@@ -8,8 +10,11 @@ export default class JobInfo extends React.Component {
         const job = navigation.getParam('job');
       return (
         <View style={styles.container}>
+        <ScrollView>
             <Text>{job.title}</Text>
-            <Text>{job.description}</Text>
+            <HTML html={job.description} ></HTML>
+        </ScrollView>
+            
         </View>
       );
     }

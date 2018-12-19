@@ -28,8 +28,13 @@ export default class Search extends React.Component {
                   let job = [];
                   for(a = 0; a < res.data.length; a++){
                     //un if para verificar lo que tiene text
-                    console.log(res.data[a].title);
-                    job.push(res.data[a]);
+                    if(this.state.text != "Search"){
+                      var busqueda = this.state.text;
+                      if(res.data[a].title.includes(busqueda)){
+                        job.push(res.data[a]);
+                      }
+                    }
+                    
                   }
                   
                   this.setState(() => ({
@@ -41,10 +46,9 @@ export default class Search extends React.Component {
 
               
           }}
-          title="boton"
+          title="Buscar"
           style={styles.button}
           >
-
           </Button>
         </View>
         

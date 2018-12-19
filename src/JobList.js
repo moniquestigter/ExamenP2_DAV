@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View , Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View , Button, TextInput, ScrollView} from 'react-native';
 import JobInfo from './JobInfo'
 
 
@@ -11,6 +11,7 @@ export default class JobList extends React.Component {
       const jobsize = jobs.length
       return (
         <View style={styles.container}>
+        <ScrollView>
         {jobs.map((job) => 
           <Button
           style={styles.button}
@@ -20,7 +21,10 @@ export default class JobList extends React.Component {
           }}
           >
           </Button>
+          
         )}
+        </ScrollView>
+        
         </View>
       );
     }
@@ -30,7 +34,8 @@ export default class JobList extends React.Component {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center', //alargado
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
     button: {
       backgroundColor: "rgba(92, 99,216, 1)",
@@ -38,7 +43,7 @@ export default class JobList extends React.Component {
       height: 45,
       borderColor: "transparent",
       borderWidth: 0,
-      borderRadius: 5
+      borderRadius: 5,
     },
     inputText: {
       height: 50,
